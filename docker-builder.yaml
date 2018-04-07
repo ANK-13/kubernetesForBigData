@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ReplicaController
+metadata:
+        name: docker-image-builder
+spec:
+        replicas: 1
+        selector:
+                app: docker-image-builder
+        template:
+                metadata:
+                        labels:
+                                app: docker-image-builder
+                        name: test-builder
+                spec:
+                        containers:
+                        - image: centos:latest
+                          imagePullPolicy: Always
+                          name: ank
+                          command: ["/bin/sh", "-c","--"]
+                          args: ["while true; do sleep 30; done;"]
+                          volumeMounts:
+                                - name: dockersocket
+                                  mountPath: /var/run/docker.sock
+                        volumes:
+                                - hostPath:
+                                        path: /var/run/docker.sock
+                                  name: dockersocket
