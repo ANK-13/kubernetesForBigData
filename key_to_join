@@ -1,0 +1,1 @@
+ kubeadm join 172.31.84.220:6443 --token pzw1d1.5qz1xibwj6dpk869 --discovery-token-ca-cert-hash sha256:dfd3030fc2ebddd22a8b44ead62cb707685e5d9810ba7784b60f9e5552055403
