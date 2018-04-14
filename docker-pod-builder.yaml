@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: centos-pod
+spec:
+  containers:
+  - name: centos-first
+    image: centos:latest
+    ports:
+    - containerPort: 80
